@@ -1,0 +1,78 @@
+﻿@model MyProject.Models.VaerlseTable
+
+@{
+    ViewBag.Title = "OpretNytVaerelse";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<h1>Opret Ny Værelse</h1>
+
+<div class="container p-5 " id="nytVærelsForm">
+
+    <form action="~/RoomsAdmin/OpretNytVaerelse" method="post" enctype="multipart/form-data">
+        <div class="text-danger">@Html.ValidationSummary()</div>
+
+
+        <div class="form-row">
+
+            <div class="form-group col-md-10 ">
+                <label for="ItemNavn">VærelsesNavn</label>
+                <input type="text" name="ItemNavn" id="ItemNavn" value="@Model.ItemNavn" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.ItemNavn)</span>
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="ItemBeskerivlse">Værelses Beskerivlse</label>
+                <textarea class="form-control editor" id="ItemBeskerivlse" name="ItemBeskerivlse" rows="3"></textarea>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.ItemBeskerivlse)</span>
+
+            </div>
+        </div>
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="fastText">fast Text</label>
+                <textarea class="form-control editor" id="fastText" name="fastText" rows="5" readonly>Hello</textarea>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.fastText)</span>
+
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="PrisMedToilet">Pris Med Toilet</label>
+                <input type="number" name="PrisMedToilet" id="PrisMedToilet" value="@Model.PrisMedToilet" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.PrisMedToilet)</span>
+
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="PrisMedFaellsToilet">Pris Med Fælls Toilet</label>
+                <input type="number" name="PrisMedFaellsToilet" id="PrisMedFaellsToilet" value="@Model.PrisMedFaellsToilet" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.PrisMedFaellsToilet)</span>
+
+            </div>
+        </div>
+
+
+
+        <div class="editor-field">
+            <input type="file" name="file" multiple="multiple" />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-5">Opret nyt værelse</button>
+    </form>
+</div>

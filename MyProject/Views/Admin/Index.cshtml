@@ -1,0 +1,56 @@
+﻿@model List<MyProject.Models.MulighederTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    if (TempData["Besked"] != null)
+    {
+        ViewBag.Besked = TempData["Besked"];
+    }
+}
+
+
+<h1>Velkommen i Muligheder Admin side </h1>
+<div class="container">
+    <table class="table">
+        <thead class="">
+            <tr>
+                <th scope="col">Mulighed ID</th>
+                <th scope="col">Mulighed Navn</th>
+                <th scope="col">Ret</th>
+                <th scope="col">slet</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.MulighedID</th>
+                    <td>@item.MulighedOverskrift</td>
+
+
+                    <td>
+                        <a href="~/Admin/RetMuligheden/@item.MulighedID">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                    </td>
+
+
+                    <td>
+                        <a href="~/Admin/SletMuligheden/@item.MulighedID">
+                            <i class="fas fa-trash-alt text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="2"><Span class="text-danger">besked til admin:@ViewBag.Besked</Span></td>
+                <td colspan="2" id="opret"><a href="~/Admin/OpretNyMulighed" class="btn">Opret Ny</a></td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>

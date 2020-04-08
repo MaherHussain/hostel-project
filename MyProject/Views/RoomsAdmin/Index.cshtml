@@ -1,0 +1,55 @@
+﻿@model List<MyProject.Models.VaerlseTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    if (TempData["Besked"] != null)
+    {
+        ViewBag.Besked = TempData["Besked"];
+    }
+}
+
+<h1>Velkommen i Værelser Admin side </h1>
+<div class="container">
+    <table class="table">
+        <thead class="">
+            <tr>
+                <th scope="col">Værelse ID</th>
+                <th scope="col">Værelse Navn</th>
+                <th scope="col">Ret</th>
+                <th scope="col">slet</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.ItemID</th>
+                    <td>@item.ItemNavn</td>
+
+
+                    <td>
+                        <a href="~/RoomsAdmin/RetVaerelset/@item.ItemID">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                    </td>
+
+
+                    <td>
+                        <a href="~/RoomsAdmin/SletVaerelset/@item.ItemID">
+                            <i class="fas fa-trash-alt text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="2"><Span class="text-danger">besked til admin:@ViewBag.Besked</Span></td>
+                <td colspan="2" id="opret"><a href="~/RoomsAdmin/OpretNytVaerelse" class="btn">Opret Ny</a></td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>

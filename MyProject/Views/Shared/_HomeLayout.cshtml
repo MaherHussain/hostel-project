@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    @*font link*@
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+    @***************font awesom*************@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    @***************css link*************@
+    <link href="~/Content/style/main.css" rel="stylesheet" />
+    <link href="~/Content/style/Home.css" rel="stylesheet" />
+
+
+
+
+
+
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div id="logo">
+                <a class="navbar-brand" href="/Home"> <img src="~/Content/Img/Logo.jpg" alt="Århus Hostel" title="Århus Hostel" /></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " data-text=" Overnatning" href="#">
+                            Overnatning
+                        </a>
+                        <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                            <a class="item" href="/Home/BestilVaerelse">bestil værelser</a>
+                            <a class="item" href="#">Another action</a>
+
+                            <a class="item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " data-text=" Kursus" href="#" id="navbarDropdown">
+                            Kursus
+                        </a>
+                        <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                            <a class="item" href="#">Action</a>
+                            <a class="item" href="#">Another action</a>
+
+                            <a class="item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " data-text="Arrangmenter" href="#">
+                            Arrangmenter
+                        </a>
+                        <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                            <a class="item" href="#">Action</a>
+                            <a class="item" href="#">Another action</a>
+
+                            <a class="item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " data-text=" PraktiskeOplysninger" href="#">
+                            PraktiskeOplysninger
+                        </a>
+                        <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                            <a class="item" href="/LogInd">Kontrolpanel</a>
+                            <a class="item" href="#">Another action</a>
+
+                            <a class="item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+    </header>
+    <div id="wrapper">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <section id="topfooter">
+            <div class="row">
+                <div id="social" class="col-lg-6 col-md-12 pt-5">
+                    <h3>find os</h3>
+                    <div id="icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div id="information" class="col-lg-6 col-md-12 col-sm-12   pt-5  ">
+                    <h2>Århus Hostel A/S</h2>
+                    <address>Bringvej 1 ,8361 Hasselager</address>
+                    <h3>Tlf. 69 14 67 77</h3>
+                    <a href="mailto:kontakt@aarhushostel.dk  ">kontakt@aarhushostel.dk  </a>
+                    <h5>-</h5>
+                    <h4>CVR 34711070</h4>
+                </div>
+            </div>
+        </section>
+        <section id="bottomfooter">
+            <div class="row">
+
+
+                <div id="payment" class="col-lg-6 col-md-12">
+                    <img src="~/Content/Img/mastercard.png" alt="MasterCard" />
+
+                    <img src="~/Content/Img/visa.png" alt="VisaCard" />
+                    <img src="~/Content/Img/dankort.png" alt="dankort" />
+                </div>
+                <div id="links" class="col-lg-6 col-md-12">
+                    <ul>
+
+                        <li>
+                            <a href="#">Kontakt</a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Kontorets åbningstider
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Om Aarhus Hostel
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Betingelser
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Privatlivspolitik
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    @***********egen JS***********@
+    <script src="~/Content/js/JavaScript.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

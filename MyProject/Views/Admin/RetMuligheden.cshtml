@@ -1,0 +1,66 @@
+﻿@model MyProject.Models.MulighederTable
+@{
+    ViewBag.Title = "RetMuligheden";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Ret Muligheden</h1>
+<div class="container ">
+
+    <form action="/Admin/RetMuligheden" method="post" enctype="multipart/form-data">
+        <div class="text-danger">@Html.ValidationSummary()</div>
+        <div class="form-row">
+            @*MulighedID*@
+            <div class="form-group col-md-6">
+                <label for="MulighedID">ID:</label>
+                <input type="text" name="MulighedID" id="MulighedID" readonly value="@Model.MulighedID" />
+            </div>
+        </div>
+        @*Mulighed Overskrift*@
+        <div class="form-group col-md-10">
+            <label for="MulighedOverskrift">Mulighed Overskrift</label>
+            <input type="text" name="MulighedOverskrift" id="MulighedOverskrift" value="@Model.MulighedOverskrift" class="form-control" />
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.MulighedOverskrift)</span>
+        </div>
+
+        @*Mulighed Text*@
+        <div class="form-group col-md-10 ">
+            <label for="MulighedText">Mulighed Text</label>
+            <textarea class="form-control editor" id="MulighedText" name="MulighedText" rows="3">@Model.MulighedText</textarea>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.MulighedText)</span>
+        </div>
+
+        @*billede filtet*@
+        <div class="form-row">
+            <div class="form-group col-md-10 mt-5 mb-5">
+
+                @*nuværende billede*@
+                <img src="~/Content/Img/cards-foto/@Model.MulighedFoto" width="100" />
+
+
+                @*hvis brugeren vil beholde det eksistende billede*@
+                <input type="hidden" name="MulighedFoto" id="MulighedFoto" value="@Model.MulighedFoto" />
+
+                @*hvis brugeren vil have et andet billede*@
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="MulighedFoto">Vælg en Photo</label>
+                        <input type="file" name="MulighedFoto" id="MulighedFoto" class="form-control" />
+                        <span class="text-danger">@Html.ValidationMessageFor(m => m.MulighedFoto)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*submit button*@
+        <div class="form-row ">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary">Ret Muligheden</button>
+                <a href="/Admin/" class="btn btn-secondary">fortryd uden Retelse</a>
+            </div>
+        </div>
+
+
+
+    </form>
+</div>
+

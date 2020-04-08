@@ -1,0 +1,40 @@
+﻿@model MyProject.Models.BrugerTable
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h1>Logind</h1>
+
+<div class="container pt-5 pb-5">
+    <h2>Velkommen til Logind side</h2>
+
+    <p>Indtast Brugernavn og password.....</p>
+
+    <h4 class="text-danger">@ViewBag.Besked</h4>
+
+
+    <form action="/LogInd/" method="post">
+        @*brugerNavn*@
+        <div class=" form-group ">
+            <div class="row">
+                <label class="col-4" for="BrugerNavn">Bruger Navn:</label>
+                <input class="col-5" type="text" name="BrugerNavn" id="BrugerNavn" />
+            </div>
+        </div>
+
+
+
+        @*Password*@
+        <div class=" form-group ">
+            <div class="row">
+
+                <label class="col-4" for="Password">PassWord:</label>
+                <input class="col-5" type="password" name="PassWord" id="Password" />
+
+            </div>
+        </div>
+        <button class="btn btn-info" type="submit">Log ind</button>
+
+    </form>
+</div>

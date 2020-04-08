@@ -1,0 +1,23 @@
+﻿@model MyProject.Models.FotoTable
+@{
+    ViewBag.Title = "SletFoto";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Slet Billedet</h1>
+
+<div class="container">
+    <h2 class="text-danger">Advarsel for sletning</h2>
+    <h4>Er du sikker at du vil slette Billedet</h4>
+    <div class="card my-4">
+        <div class="card-body">
+            <img src="~/Content/Img/@Model.FotoNavn" alt="@Model.FotoNavn" />
+        </div>
+    </div>
+    <form action="~/RoomsAdmin/SletFoto" method="post">
+        <input type="hidden" name="FotoID" id="FotoID" value="@Model.FotoID" />
+        <button type="submit" class="btn btn-danger">Slet</button>
+        <a href="~/RoomsAdmin/RetVaerelset/@Model.VaerlseTable.ItemID" class="btn btn-success">fortryd uden sletning</a>
+    </form>
+</div>
+

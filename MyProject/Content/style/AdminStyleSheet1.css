@@ -1,0 +1,54 @@
+﻿body {
+}
+h1 {
+    padding:30px 0;
+    text-align:center;
+    border-bottom: 10px solid transparent;
+    border-image-source: url('../Img/border.png');
+    border-image-slice: 7 31% 11;
+}
+.table{
+    margin:50px 0; 
+    border:2px solid #ff6a00;
+    
+
+}
+thead {
+    font-size: 20px;
+    background-color:#ff5722ba;
+    
+}
+tbody tr th, tbody tr td {
+    font-size: 15px;
+    
+}
+.fa-pencil-alt:hover,.fa-trash-alt:hover {
+    transform: scale(1.2);
+    transition:.3s;
+
+}
+#opret a{
+    background-color:rgba(102, 25, 25, 0.77);
+    font-size:20px;
+    color:white;
+}
+
+
+
+/*******ny  Mulighed  Form********/
+Form {
+    background-color:#f46c22bf;
+    margin: 30px auto;
+    padding:30px;
+    
+}
+form-group{
+    margin:50px auto;
+}
+form-row{
+    padding:200px 0;
+}
+label {
+    font-size: 20px;
+}
+

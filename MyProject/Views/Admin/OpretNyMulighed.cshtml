@@ -1,0 +1,46 @@
+﻿@model MyProject.Models.MulighederTable
+@{
+    ViewBag.Title = "OpretNyMulighed";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Opret Ny Mulighed</h1>
+
+<div class="container p-5 " id="nyMulighedForm">
+
+    <form action="~/Admin/OpretNyMulighed" method="post" enctype="multipart/form-data">
+        <div class="text-danger">@Html.ValidationSummary()</div>
+
+
+        <div class="form-row">
+
+            <div class="form-group col-md-10 ">
+                <label for="MulighedOverskrift">Mulighed Overskrift</label>
+                <input type="text" name="MulighedOverskrift" id="MulighedOverskrift" value="@Model.MulighedOverskrift" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.MulighedOverskrift)</span>
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="MulighedText">Mulighed Text</label>
+                <textarea class="form-control editor" id="MulighedText" name="MulighedText" rows="3"></textarea>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.MulighedText)</span>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="MulighedFoto">Vælg en Photo</label>
+                <input type="file" name="MulighedFoto" id="MulighedFoto" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.MulighedFoto)</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Opret ny Mulighed</button>
+    </form>
+</div>

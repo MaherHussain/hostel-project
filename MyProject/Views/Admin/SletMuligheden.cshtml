@@ -1,0 +1,21 @@
+﻿@model MyProject.Models.MulighederTable
+@{
+    ViewBag.Title = "SletMuligheden";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Slet Muligheden</h1>
+<div class="container">
+    <h2 class="text-danger">Advarsel for sletning</h2>
+    <h4>Er du sikker at du vil slette Muligheden</h4>
+    <div class="card my-4">
+        <div class="card-body">
+            <h4>@Model.MulighedOverskrift</h4>
+        </div>
+    </div>
+    <form action="~/Admin/SletMuligheden" method="post">
+        <input type="hidden" name="MulighedID" id="MulighedID" value="@Model.MulighedID" />
+        <button type="submit" class="btn btn-danger">Slet</button>
+        <a href="~/Admin" class="btn btn-success">fortryd uden sletning</a>
+    </form>
+</div>

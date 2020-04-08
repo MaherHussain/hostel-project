@@ -1,0 +1,116 @@
+﻿@model MyProject.Models.VaerlseTable
+
+@{
+    ViewBag.Title = "RetVaerelset";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Ret Værelset</h1>
+
+
+<div class="container p-5 ">
+
+    <form action="~/RoomsAdmin/RetVaerelset" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <div class="text-danger">@Html.ValidationSummary()</div>
+
+        <div class="form-group col-md-6">
+            <label for="ItemID">Værelse ID</label>
+            <input type="text" readonly name="ItemID" id="ItemID" value="@Model.ItemID" class="form-control" />
+
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-10 ">
+                <label for="ItemNavn">VærelsesNavn</label>
+                <input type="text" name="ItemNavn" id="ItemNavn" value="@Model.ItemNavn" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.ItemNavn)</span>
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="ItemBeskerivlse">Værelses Beskerivlse</label>
+                <textarea class="form-control editor" id="ItemBeskerivlse" name="ItemBeskerivlse" rows="3">@Model.ItemBeskerivlse</textarea>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.ItemBeskerivlse)</span>
+
+            </div>
+        </div>
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="fastText">fast Text</label>
+                <textarea class="form-control editor" id="fastText" name="fastText" rows="5" readonly>@Model.fastText</textarea>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.fastText)</span>
+
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="PrisMedToilet">Pris Med Toilet</label>
+                <input type="number" name="PrisMedToilet" id="PrisMedToilet" value="@Model.PrisMedToilet" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.PrisMedToilet)</span>
+
+            </div>
+        </div>
+
+
+        <div class="form-row ">
+            <div class="form-group col-md-10">
+
+                <label for="PrisMedFaellsToilet">Pris Med Fælls Toilet</label>
+                <input type="number" name="PrisMedFaellsToilet" id="PrisMedFaellsToilet" value="@Model.PrisMedFaellsToilet" class="form-control" />
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.PrisMedFaellsToilet)</span>
+
+            </div>
+        </div>
+
+
+        <div class="form-row mb-5">
+            <div class="form-group col-md-6">
+
+                @*nuværende billede*@
+
+
+
+                <div class="row">
+                    @foreach (var item in Model.FotoTable)
+                    {
+                        <div class="ml-5">
+                            <img class="mb-5" src="~/Content/Img/@item.FotoNavn" width="300" />
+                            <a href="~/RoomsAdmin/SletFoto/@item.FotoID" class="btn btn-danger">X</a>
+                        </div>
+
+
+                        @*hvis brugeren vil beholde det eksistende billede*@
+                        @*<input type="hidden" name="Product.Photo" id="Photo" value="@item.FotoNavn" />*@
+
+
+
+                    }
+                </div>
+
+                @*hvis brugeren vil have et andet billede*@
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="FotoNavn">Vælg  Photo</label>
+                        <input type="file" name="FotoNavn" id="FotoNavn" class="form-control" multiple="multiple" />
+                        <span class="text-danger">@Html.ValidationMessageFor(m => m.FotoTable)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit" class="btn btn-primary mt-5">Gem</button>
+            <a href="/RoomsAdmin" class="btn btn-secondary mt-5 ml-5">fortryd uden Retelse</a>
+        </div>
+    </form>
+</div>
+
+

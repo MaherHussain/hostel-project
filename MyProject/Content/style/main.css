@@ -1,0 +1,251 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+   width:100%;
+    font-family: 'Crete Round', serif !important;
+    overflow-x: hidden;
+    margin: 0 auto !important;
+}
+
+
+
+
+
+/***********header*********/
+header {
+    padding-bottom: 50px !important;
+    border-bottom: 10px solid transparent;
+    border-image-source: url('../Img/border.png');
+    border-image-slice: 7 35% 11;
+}
+
+div#logo a img {
+    display: block;
+    width: 250px;
+    height: 200px;
+}
+
+#navbarSupportedContent {
+    margin-left: 20%;
+}
+
+ul li.dropdown {
+    position: relative;
+    display: inline-block;
+    max-width: 230px;
+}
+
+a.nav-link {
+    color: rgba(0, 0, 0, 0.75);
+    display: inline-block;
+    margin: 20px;
+    position: relative;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 0 !important;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+    z-index: 1;
+}
+
+    .dropdown-content a.item {
+        color: black !important;
+        padding: 12px 16px !important;
+        text-decoration: none;
+        display: block;
+        font-size: 15px;
+    }
+
+div#navbarSupportedContent .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+div#navbarSupportedContent .dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+li a.nav-link:before {
+    content: attr(data-text);
+    color: black;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    padding: 10px 0px;
+    width: 0;
+    display: inline-block;
+    overflow: hidden;
+    transition: .4s;
+    border-bottom: 3px solid orange;
+}
+
+li a.nav-link:hover:before {
+    width: 100%;
+}
+
+header:before, header:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    -moz-border-radius: 100px / 10px;
+    border-radius: 100px / 10px;
+}
+
+header:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: skew(8deg) rotate(3deg);
+    -moz-transform: skew(8deg) rotate(3deg);
+    -ms-transform: skew(8deg) rotate(3deg);
+    -o-transform: skew(8deg) rotate(3deg);
+    transform: skew(10deg) rotate(5deg);
+}
+
+
+
+/***********footer*********/
+footer {
+   
+   
+    margin:0 auto !important;
+}
+
+/*******topfooter******/
+#topfooter {
+    width: 100%;
+    background-color: #3b3e4f;
+    padding: 50px 0 50px 50px;
+    margin:0 auto;
+}
+
+#social {
+}
+
+    #social h3 {
+        color: #ffffff;
+        font-size: 35px;
+        margin-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    #social a {
+        text-decoration: none;
+        color: #f9f9f9;
+        width: 75px;
+        height: 76px;
+        border-radius: 50%;
+        display: block;
+        padding: 8px 0px 0px 20px;
+        float: left;
+        margin-left: 10px;
+        background-color: #808080;
+    }
+
+div#icons a:nth-child(1):hover {
+    background-color: #003cec;
+}
+
+div#icons a:nth-child(2):hover {
+    background-color: #7680b1;
+}
+
+#social div#icons a:hover i {
+    animation: beats .7s infinite linear;
+}
+
+@keyframes beats {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.fa-facebook-f {
+    font-size: 58px;
+}
+
+.fa-linkedin-in {
+    font-size: 50px;
+}
+
+#information {
+}
+
+    #information h2 {
+        font-size: 30px;
+        color: #ffffff;
+    }
+
+    #information address, #information h3, #information h4, #information a {
+        color: rgba(249, 249, 249, 0.93);
+        font-size: 16px;
+    }
+
+    #information h5 {
+        color: rgba(249, 249, 249, 0.93);
+        font-size: 10px;
+    }
+
+
+/*******bottomfooter******/
+
+#bottomfooter {
+    width: 100%;
+    height: auto;
+    background-color: #2c2e3a;
+    padding: 50px 50px;
+}
+
+    #bottomfooter div#payment {
+        margin: 0 auto;
+    }
+
+        #bottomfooter div#payment img {
+            display: block;
+            width: 130px;
+            float: left;
+        }
+
+    #bottomfooter div#links {
+    }
+
+#links ul {
+    list-style-type: none;
+}
+
+    #links ul li {
+        float: left;
+    }
+
+#bottomfooter div#links a {
+    color: #ffffff;
+    margin: 25px;
+    text-align: center;
+    text-decoration: underline;
+    display: block;
+}
+
+    #bottomfooter div#links a:hover {
+        color: #808080;
+    }

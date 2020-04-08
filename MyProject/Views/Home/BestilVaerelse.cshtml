@@ -1,0 +1,106 @@
+﻿@model List<MyProject.Models.VaerlseTable>
+@{
+    ViewBag.Title = "BestilVaerelse";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+
+
+}
+
+<h1 id="overskrift">Bestil Værelse</h1>
+<div class="container mt-5 mb-5">
+    <div class="row">
+        @foreach (var Vaerlse in Model)
+        {
+
+
+            <div class="col-lg-6 col-md-4 col-sm-12">
+                <div class=" mt-5" id="rooms">
+                    <div class="roomdiv">
+                        <h1 class="">@Vaerlse.ItemNavn</h1>
+
+                        <div id="roomfoto">
+                            @foreach (var foto in Vaerlse.FotoTable)
+                            {
+                                <!-- Trigger the Modal -->
+                                <img id="img_model_@foto.FotoID" src="~/Content/Img/@foto.FotoNavn" class="modalImage" alt="@foto.FotoNavn">
+                                <!-- The Modal -->
+                                <div id="myModal_@foto.FotoID" class="Mymodal">
+
+                                    <!-- The Close Button -->
+                                    <span class="close" id="close_@foto.FotoID">&times;</span>
+
+                                    <!-- Modal Content (The Image) -->
+                                    <img class="modal-content" id="img_model0_@foto.FotoID">
+
+                                    <!-- Modal Caption (Image Text) -->
+                                    <div id="caption"></div>
+                                </div>
+                                <script>
+                                    var modal = document.getElementById('myModal_@foto.FotoID');
+
+                                    var img = document.getElementById('img_model_@foto.FotoID');
+                                    var modalImg = document.getElementById("img_model0_@foto.FotoID");
+                                    var captionText = document.getElementById("caption");
+                                    img.onclick = function () {
+                                        modal.style.display = "block";
+                                        modalImg.src = this.src;
+                                        captionText.innerHTML = this.alt;
+                                    }
+
+                                    var span = document.getElementById("close_@foto.FotoID");
+
+                                    span.onclick = function () {
+                                        modal.style.display = "none";
+                                    }
+                                </script>
+
+                            }
+                        </div>
+
+
+
+
+                        <div class="">
+                            <p>@Html.Raw(Vaerlse.ItemBeskerivlse)</p>
+                            <p>@Html.Raw(Vaerlse.fastText)</p>
+                            <p>Pris Med Toilet : <strong>@Vaerlse.PrisMedToilet</strong></p>
+
+                            @if (@Vaerlse.PrisMedFaellsToilet == null)
+                            {
+
+                            }
+                            else
+                            {
+                                <p>Pris Med fælls Toilet: <strong>@Vaerlse.PrisMedFaellsToilet</strong></p>
+
+                            }
+
+
+                        </div>
+
+                        <a href="#" class="btn btn-primary">Bestil</a>
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+        }
+
+
+
+
+    </div>
+</div>
+
+
+
+
+

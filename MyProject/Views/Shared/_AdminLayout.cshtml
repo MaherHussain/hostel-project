@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @***************font awesom*************@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    @***************css link*************@
+
+    <link href="~/Content/style/main.css" rel="stylesheet" />
+
+    <link href="~/Content/style/AdminStyleSheet1.css" rel="stylesheet" />
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+
+
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    @*********************header******************@
+    <header class="container-fluid">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <div id="logo">
+                    <a class="navbar-brand" href="/Home"> <img src="~/Content/Img/Logo.jpg" alt="Århus Hostel" title="Århus Hostel" /></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " data-text=" Overnatning" href="#">
+                                Overnatning
+                            </a>
+                            <div class="dropdown-content" aria-labelledby="navbarDropdown">
+                                <a class="item" href="/Home/BestilVaerelse">bestil værelser</a>
+                                <a class="item" href="/Home">Muligheder side</a>
+
+
+                            </div>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " data-text="MulighederAdmin" href="/Admin" id="navbarDropdown">
+                                MulighederAdmin
+                            </a>
+
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " data-text="RoomsAdmin" href="/RoomsAdmin/">
+                                RoomsAdmin
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <div class="container pt-5">
+        <a class="btn btn-primary mb-3" href="/LogInd/">LOGUD</a>
+        <div class="row">
+            <div>
+                <h3>Velkomme til @Session["BurgerSession"].ToString()</h3>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+
+
+    @*******Editors link*********@
+    <script>
+        var AllEditors = document.querySelectorAll('.editor');
+        for (var i = 0; i < AllEditors.length; ++i) {
+            ClassicEditor.create(AllEditors[i]);
+            //removeplugins['Heading', 'link'],
+            //    toolbar:['blod','italic',]
+
+        }
+    </script>
+
+    @***********egen JS***********@
+    <script src="~/Content/js/JavaScript.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="~/Content/Bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

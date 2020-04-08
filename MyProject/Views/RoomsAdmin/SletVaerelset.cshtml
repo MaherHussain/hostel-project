@@ -1,0 +1,21 @@
+﻿@model MyProject.Models.VaerlseTable
+@{
+    ViewBag.Title = "SletVaerelset";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Slet Værelset</h1>
+<div class="container">
+    <h2 class="text-danger">Advarsel for sletning</h2>
+    <h4>Er du sikker at du vil slette Værelset</h4>
+    <div class="card my-4">
+        <div class="card-body">
+            <h4>@Model.ItemNavn</h4>
+        </div>
+    </div>
+    <form action="~/RoomsAdmin/SletVaerelset" method="post">
+        <input type="hidden" name="ItemID" id="ItemID" value="@Model.ItemID" />
+        <button type="submit" class="btn btn-danger">Slet</button>
+        <a href="~/RoomsAdmin" class="btn btn-success">fortryd uden sletning</a>
+    </form>
+</div>
